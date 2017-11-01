@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scrabble Word Finder</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+</head>
+<body>
+  <h1>Scrabble</h1>
+  <form action="">
+    <input id='input' type="text">Insert up to 7 letters
+    <button id='submit'> Find words!</button>
+  </form>
+</body>
+<script>
+  $(document).ready(function() {
+    $('#submit').click(function(e) {
+      e.preventDefault();
+      let input = $('#input').val();
+      console.log('input', input);
+      $.post('http://localhost:3000/findwords', {"input": input}, function(data) {
+        console.log('client result data =>', data)
+      })
+    })
+
+    
+
+
+  })
+</script>
+</html>
